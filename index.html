@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Hardik 😌</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(180deg, #fff0f5, #ffffff);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Poppins', sans-serif;
+      overflow: hidden;
+    }
+
+    .card {
+      background: white;
+      padding: 40px 30px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(255, 182, 193, 0.3);
+      max-width: 360px;
+    }
+
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #d6336c;
+      font-size: 28px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #555;
+      font-size: 15px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+    }
+
+    button {
+      padding: 10px 22px;
+      border-radius: 25px;
+      border: none;
+      font-size: 14px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    #yes {
+      background: #ff6f91;
+      color: white;
+    }
+
+    #yes:hover {
+      background: #ff4f7b;
+    }
+
+    #no {
+      background: #f1f1f1;
+      color: #555;
+      position: relative;
+    }
+
+    .popup {
+      position: fixed;
+      inset: 0;
+      background: rgba(255, 240, 245, 0.95);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .popup h2 {
+      font-family: 'Playfair Display', serif;
+      color: #d6336c;
+      font-size: 30px;
+    }
+
+    .heart {
+      position: absolute;
+      color: #ffb6c1;
+      font-size: 18px;
+      animation: float 8s linear infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh); opacity: 0; }
+      10% { opacity: 1; }
+      100% { transform: translateY(-10vh); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Hardik 😌</h1>
+    <p>
+      Okay listen.<br>
+      This is very important.<br>
+      Like… extremely important.
+    </p>
+    <h1 style="font-size:22px;">
+      Will you be my Valentine?<br>
+      <span style="font-size:14px; color:#777;">
+        (No wrong answers. Be smart.)
+      </span>
+    </h1>
+
+    <div class="buttons">
+      <button id="yes">Yes</button>
+      <button id="no">No</button>
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <h2>
+      I mean… obviously 😏<br>
+      Congrats, you’re stuck with me.
+    </h2>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("no");
+    const yesBtn = document.getElementById("yes");
+    const popup = document.getElementById("popup");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 200 - 100;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      popup.style.display = "flex";
+    });
+
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.innerText = "♡";
+      heart.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 8000);
+    }, 500);
+  </script>
+
+</body>
+</html>
